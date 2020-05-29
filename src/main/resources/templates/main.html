@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html  lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--360浏览器优先以webkit内核解析-->
+    <title>ADP快速开发平台介绍</title>
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" rel="stylesheet"/>
+    <link href="../static/css/font-awesome.min.css" th:href="@{/css/font-awesome.min.css}" rel="stylesheet"/>
+    <link href="../static/css/main/animate.min.css" th:href="@{/css/main/animate.min.css}" rel="stylesheet"/>
+    <link href="../static/css/main/style.min862f.css" th:href="@{/css/main/style.min862f.css}" rel="stylesheet"/>
+</head>
+
+<body class="gray-bg">
+    <div class="row  border-bottom white-bg dashboard-header">
+        <div class="col-sm-12">
+            <blockquote class="text-warning" style="font-size:14px">
+                                        神舟通用公司主营业务主要包括神通关系型通用数据库、神通KSTORE海量数据管理系统、神通xCluster集群件、神通商业智能套件等系列产品研发和市场销售。基于产品组合，可形成支持交易处理、MPP数据库集群、数据分析与处理等解决方案。公司拥有众多实战经验丰富的中高级数据库技术服务人员，可提供数据库系统调优和运维服务。公司客户主要覆盖政府、电信、能源、交通、网安、国防和军工等领域，率先实现国产数据库在电信行业的大规模商用。
+            </blockquote>
+
+            <hr>
+        </div>
+        <div class="col-sm-3">
+            <h2>Hello,Guest</h2>
+            <small>移动设备访问请扫描以下二维码：</small>
+            <br>
+            <br>
+            <img th:src="@{/img/qr_code.png}" width="100%" style="max-width:264px;">
+            <br>
+        </div>
+        <div class="col-sm-5">
+            <h2>ADP快速开发平台</h2>
+            <p>天津神舟通用数据技术有限公司 [1]  获得国家核高基科技重大专项重点支持。神舟通用公司提供神通数据库系列产品与服
+务，产品技术领先，先后获得30项数据库技术发明专利，在国产数据库行业处于领先位置。公司拥有北京研发中心、天津研发中心、杭州研发中心三家产品研发基地，与浙江大学、北航、北京大学、中科院软件所等高校和科研院所开展了深度合作，具有一大批五年以上的数据库核心研发人才。</p>
+            <p>
+                <b>当前版本：</b><span>v[[${version}]]</span>
+            </p>
+            <p>
+                <span class="label label-warning">&yen;免费开源</span>
+            </p>
+            <br>
+            <p>
+                
+            </p>
+        </div>
+        <div class="col-sm-4">
+            <h4>技术选型：</h4>
+            <ol>
+                <li>核心框架：Spring Boot。</li>
+                <li>安全框架：Apache Shiro。</li>
+                <li>模板引擎：Thymeleaf。</li>
+                <li>持久层框架：MyBatis。</li>
+				<li>定时任务:Quartz。</li>
+                <li>数据库连接池：Druid。</li>
+                <li>工具类：Fastjson。</li>
+                <li>更多……</li>
+            </ol>
+        </div>
+
+    </div>
+    <div class="wrapper wrapper-content">
+        <div class="row">
+            <div class="col-sm-4">
+
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>联系信息</h5>
+
+                    </div>
+                    <div class="ibox-content">
+                        <p><i class="fa fa-send-o"></i> 官网：<a href="http://www.adp.vip" target="_blank">http://www.adp.vip</a>
+                        </p>
+                        <p><i class="fa fa-qq"></i> QQ群：<s>满1389287</s> <s>满1679294</s> <s>满1529866</s> <s>满1772718</s> <s>满1366522</s> <s>满1382251</s> <s>满1145125</s> <s>满86752435</s> <s>满134072510</s> <s>满210336300</s> <a href="https://jq.qq.com/?_wv=1027&k=5omzbKc" target="_blank">339522636</a> 
+                        </p>
+                        <p><i class="fa fa-weixin"></i> 微信：<a href="javascript:;">/ *ADP快速开发平台</a>
+                        </p>
+                        <p><i class="fa fa-credit-card"></i> 支付宝：<a href="javascript:;" class="支付宝信息">/ *ADP快速开发平台</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>更新日志</h5>
+                    </div>
+                    <div class="ibox-content no-padding">
+                        <div class="panel-body">
+                            <div class="panel-group" id="version">
+                            <div class="panel panel-default">
+								<div class="panel-heading">
+								   <h5 class="panel-title">
+									   <a data-toggle="collapse" data-parent="#version" href="#v42">v4.2.0</a><code class="pull-right">2020.03.23</code>
+								   </h5>
+								</div>
+								<div id="v42" class="panel-collapse collapse in">
+									<div class="panel-body">
+									   <ol>
+									        <li>用户管理添加分配角色页面</li>
+									        <li>定时任务添加调度日志按钮</li>
+									        <li>新增是否开启用户注册功能</li>
+											<li>新增页面滚动显示返回顶部按钮</li>
+											<li>用户&角色&任务添加更多操作按钮</li>
+											<li>iframe框架页会话过期弹出超时提示</li>
+											<li>其他细节优化</li>
+										</ol>
+									</div>
+								</div>
+							</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+        	<div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>联系我们</h5>
+                    </div>
+                    <div class="ibox-content no-padding">
+                        <div class="panel-body">
+                            <div class="panel-group" id="version">
+                            <div class="panel panel-default">
+								<div class="panel-heading">
+								   <h5 class="panel-title">
+									   <a data-toggle="collapse" data-parent="#version" href="#v42">v4.2.0</a><code class="pull-right">2020.03.23</code>
+								   </h5>
+								</div>
+								<div id="v42" class="panel-collapse collapse in">
+									<div class="panel-body">
+									   <ol>
+									        <li>用户管理添加分配角色页面</li>
+									        <li>定时任务添加调度日志按钮</li>
+									        <li>新增是否开启用户注册功能</li>
+											<li>新增页面滚动显示返回顶部按钮</li>
+											<li>用户&角色&任务添加更多操作按钮</li>
+											<li>iframe框架页会话过期弹出超时提示</li>
+											<li>其他细节优化</li>
+										</ol>
+									</div>
+								</div>
+							</div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+	</div>
+	</div>
+    <script th:src="@{/js/jquery.min.js}"></script>
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+    <script th:src="@{/ajax/libs/layer/layer.min.js}"></script>
+    <script type="text/javascript">
+	    $('#pay-qrcode').click(function(){
+	        var html=$(this).html();
+	        parent.layer.open({
+	            title: false,
+	            type: 1,
+	            closeBtn:false,
+	            shadeClose:true,
+	            area: ['600px', 'auto'],
+	            content: html
+	        });
+	    });
+    </script>
+</body>
+</html>

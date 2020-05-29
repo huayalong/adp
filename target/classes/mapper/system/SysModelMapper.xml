@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.adp.system.mapper.SysModelMapper">
+    
+    <resultMap type="SysModel" id="SysModelResult">
+        <result property="modelId"    column="model_id"    />
+        <result property="modelName"    column="model_name"    />
+        <result property="modelMark"    column="model_mark"    />
+        <result property="modelType"    column="model_type"    />
+        <result property="modelInfo"    column="model_info"    />
+        <result property="createBy"    column="create_by"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateBy"    column="update_by"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="remark"    column="remark"    />
+    </resultMap>
+
+    <sql id="selectSysModelVo">
+        select model_id, model_name, model_mark, model_type, model_info, create_by, create_time, update_by, update_time, remark from sys_model
+    </sql>
+
+    <select id="selectSysModelList" parameterType="SysModel" resultMap="SysModelResult">
+        <include refid="selectSysModelVo"/>
+        <where>  
+            <if test="modelName != null  and modelName != ''"> and model_name like concat('%', #{modelName}, '%')</if>
+            <if test="modelMark != null  and modelMark != ''"> and model_mark = #{modelMark}</if>
+            <if test="modelType != null  and modelType != ''"> and model_type = #{modelType}</if>
+            <if test="modelInfo != null  and modelInfo != ''"> and model_info = #{modelInfo}</if>
+        </where>
+    </select>
+    
+    <select id="selectSysModelById" parameterType="Integer" resultMap="SysModelResult">
+        <include refid="selectSysModelVo"/>
+        where model_id = #{modelId}
+    </select>
+        
+    <insert id="insertSysModel" parameterType="SysModel" useGeneratedKeys="true" keyProperty="modelId">
+        insert into sys_model
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="modelName != null  and modelName != ''">model_name,</if>
+            <if test="modelMark != null  and modelMark != ''">model_mark,</if>
+            <if test="modelType != null  and modelType != ''">model_type,</if>
+            <if test="modelInfo != null  and modelInfo != ''">model_info,</if>
+            <if test="createBy != null  and createBy != ''">create_by,</if>
+            <if test="createTime != null ">create_time,</if>
+            <if test="updateBy != null  and updateBy != ''">update_by,</if>
+            <if test="updateTime != null ">update_time,</if>
+            <if test="remark != null  and remark != ''">remark,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="modelName != null  and modelName != ''">#{modelName},</if>
+            <if test="modelMark != null  and modelMark != ''">#{modelMark},</if>
+            <if test="modelType != null  and modelType != ''">#{modelType},</if>
+            <if test="modelInfo != null  and modelInfo != ''">#{modelInfo},</if>
+            <if test="createBy != null  and createBy != ''">#{createBy},</if>
+            <if test="createTime != null ">#{createTime},</if>
+            <if test="updateBy != null  and updateBy != ''">#{updateBy},</if>
+            <if test="updateTime != null ">#{updateTime},</if>
+            <if test="remark != null  and remark != ''">#{remark},</if>
+         </trim>
+    </insert>
+
+    <update id="updateSysModel" parameterType="SysModel">
+        update sys_model
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="modelName != null  and modelName != ''">model_name = #{modelName},</if>
+            <if test="modelMark != null  and modelMark != ''">model_mark = #{modelMark},</if>
+            <if test="modelType != null  and modelType != ''">model_type = #{modelType},</if>
+            <if test="modelInfo != null  and modelInfo != ''">model_info = #{modelInfo},</if>
+            <if test="createBy != null  and createBy != ''">create_by = #{createBy},</if>
+            <if test="createTime != null ">create_time = #{createTime},</if>
+            <if test="updateBy != null  and updateBy != ''">update_by = #{updateBy},</if>
+            <if test="updateTime != null ">update_time = #{updateTime},</if>
+            <if test="remark != null  and remark != ''">remark = #{remark},</if>
+        </trim>
+        where model_id = #{modelId}
+    </update>
+
+    <delete id="deleteSysModelById" parameterType="Integer">
+        delete from sys_model where model_id = #{modelId}
+    </delete>
+
+    <delete id="deleteSysModelByIds" parameterType="String">
+        delete from sys_model where model_id in 
+        <foreach item="modelId" collection="array" open="(" separator="," close=")">
+            #{modelId}
+        </foreach>
+    </delete>
+    
+</mapper>
